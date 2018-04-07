@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://dust/LowResulizor.gd"
 
 #What it looks like
 #export(Texture) var dune_textures

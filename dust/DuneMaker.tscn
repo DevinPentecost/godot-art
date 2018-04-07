@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://dust/blurry_material.tres" type="Material" id=1]
-[ext_resource path="res://dust/DuneMaker.gd" type="Script" id=2]
+[ext_resource path="res://dust/DuneMaker.gd" type="Script" id=1]
 
 [node name="DuneMaker" type="Node2D"]
 
-material = ExtResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
+start_scale = 1
+end_scale = 10
+speed = 0.5
 dune_color_start = null
 dune_color_end = null
 dune_scale_start = null

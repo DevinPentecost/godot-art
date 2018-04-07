@@ -1,22 +1,23 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://dust/DuneMaker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dust/white.png" type="Texture" id=2]
-[ext_resource path="res://dust/lowres.shader" type="Shader" id=3]
-[ext_resource path="res://dust/square/square.tscn" type="PackedScene" id=4]
+[ext_resource path="res://lib/godot-practice-shaders/3d/lowres/lowres.shader" type="Shader" id=3]
+[ext_resource path="res://dust/LowResulizor.gd" type="Script" id=4]
+[ext_resource path="res://dust/square/square.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.147929, 0.757396 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.539063, 0.467337, 0.0800171, 1, 0.367188, 0.302284, 0.107574, 1 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 6 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -46,7 +47,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 5.0
 scale_random = 0.5
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.5
 anim_speed = 0.0
@@ -56,14 +57,32 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Hue Variation", "Initial Velocity" ]
 
+[sub_resource type="GDScript" id=10]
+
+script/source = "extends \"res://dust/LowResulizor.gd\"
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
 [sub_resource type="ShaderMaterial" id=9]
 
 render_priority = 0
 shader = ExtResource( 3 )
-shader_param/resolution_scale = 1.0
-_sections_unfolded = [ "shader_param" ]
+shader_param/resolution_scale = 2
 
-[sub_resource type="Environment" id=10]
+[sub_resource type="Environment" id=5]
 
 background_mode = 0
 background_sky_custom_fov = 0.0
@@ -142,18 +161,18 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background" ]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=6]
 
 offsets = PoolRealArray( 0, 0.408284, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.875, 0.750031, 0.0751953, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=7]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 6 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 1
@@ -183,7 +202,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 5.0
 scale_random = 0.5
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 7 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -199,6 +218,9 @@ _sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Spread" ]
 
 position = Vector2( 800, 230 )
 _sections_unfolded = [ "Material", "Transform" ]
+start_scale = 1
+end_scale = 10
+speed = 0.5
 dune_color_start = Color( 0.1875, 0.176605, 0.105469, 1 )
 dune_color_end = Color( 0.316406, 0.244759, 0.0543823, 1 )
 dune_scale_start = 3.0
@@ -214,6 +236,9 @@ dune_prep_count = 7
 
 position = Vector2( 800, 300 )
 _sections_unfolded = [ "Material", "Transform" ]
+start_scale = 1
+end_scale = 10
+speed = 0.5
 dune_color_start = Color( 0.230469, 0.215882, 0.120636, 1 )
 dune_color_end = Color( 0.449219, 0.338861, 0.0456238, 1 )
 dune_scale_start = 0.9
@@ -242,7 +267,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 3 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -256,7 +281,11 @@ show_behind_parent = true
 position = Vector2( 300, 575 )
 scale = Vector2( 600, 400 )
 texture = ExtResource( 2 )
+script = SubResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+start_scale = 1
+end_scale = 10
+speed = 0.5
 
 [node name="WandererViewportContainer" type="ViewportContainer" parent="." index="4"]
 
@@ -275,7 +304,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
-_sections_unfolded = [ "Material", "Pause" ]
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Pause", "Visibility" ]
+start_scale = 1
+end_scale = 10
+speed = 0.01
 
 [node name="Viewport" type="Viewport" parent="WandererViewportContainer" index="0"]
 
@@ -309,7 +342,7 @@ _sections_unfolded = [ "Rendering" ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15 )
 keep_aspect = 1
 cull_mask = 1048575
-environment = SubResource( 10 )
+environment = SubResource( 5 )
 h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
@@ -321,7 +354,7 @@ near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="square" parent="WandererViewportContainer/Viewport" index="1" instance=ExtResource( 4 )]
+[node name="square" parent="WandererViewportContainer/Viewport" index="1" instance=ExtResource( 5 )]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
@@ -342,7 +375,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 11 )
+process_material = SubResource( 8 )
 texture = null
 normal_map = null
 h_frames = 1

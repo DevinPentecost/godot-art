@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://dust/blurry_material.tres" type="Material" id=1]
+[ext_resource path="res://dust/DuneMaker.gd" type="Script" id=2]
+
+[node name="DuneMaker" type="Node2D"]
+
+material = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+dune_color_start = null
+dune_color_end = null
+dune_scale_start = null
+dune_scale_end = null
+dune_velocity_start = null
+dune_velocity_end = null
+dune_spawn_start = null
+dune_spawn_end = null
+dune_max_lifetime = null
+dune_prep_count = null
+
+[node name="SpawnTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
+

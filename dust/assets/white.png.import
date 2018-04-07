@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dune_2.png-36660960285c1260a7a510a540c9a2bb.stex"
+path="res://.import/white.png-2b72129b72ef1f9d8d4633ce6a8034b3.stex"
 
 [deps]
 
-source_file="res://dust/dune_2.png"
-source_md5="092b90c9364ea4fe628831913e24a0ee"
+source_file="res://dust/assets/white.png"
+source_md5="7633ab1e21935cde2f141cabb670592d"
 
-dest_files=[ "res://.import/dune_2.png-36660960285c1260a7a510a540c9a2bb.stex" ]
-dest_md5="0affac5dcbfc93d6a804f34409f9abcc"
+dest_files=[ "res://.import/white.png-2b72129b72ef1f9d8d4633ce6a8034b3.stex" ]
+dest_md5="840043628701c049d68e70fca6bd64cd"
 
 [params]
 

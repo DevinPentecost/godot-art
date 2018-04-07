@@ -2,7 +2,7 @@ extends "res://dust/LowResulizor.gd"
 
 #What it looks like
 #export(Texture) var dune_textures
-var dune_textures = [preload("res://dust/dune_1.png"), preload("res://dust/dune_2.png"), preload("res://dust/dune_3.png")]
+var dune_textures = [preload("res://dust/assets/dune_1.png"), preload("res://dust/assets/dune_2.png"), preload("res://dust/assets/dune_3.png")]
 export(Color, RGB) var dune_color_start
 export(Color, RGB) var dune_color_end
 export(float) var dune_scale_start

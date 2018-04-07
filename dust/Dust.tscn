@@ -1,10 +1,31 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://dust/DuneMaker.tscn" type="PackedScene" id=1]
-[ext_resource path="res://dust/white.png" type="Texture" id=2]
-[ext_resource path="res://lib/godot-practice-shaders/3d/lowres/lowres.shader" type="Shader" id=3]
-[ext_resource path="res://dust/LowResulizor.gd" type="Script" id=4]
-[ext_resource path="res://dust/square/square.tscn" type="PackedScene" id=5]
+[ext_resource path="res://dust/assets/white.png" type="Texture" id=2]
+[ext_resource path="res://dust/PillarMaker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://lib/godot-practice-shaders/3d/lowres/lowres.shader" type="Shader" id=4]
+[ext_resource path="res://dust/LowResulizor.gd" type="Script" id=5]
+[ext_resource path="res://dust/square/square.tscn" type="PackedScene" id=6]
+[ext_resource path="res://dust/assets/wind_clip.wav" type="AudioStream" id=7]
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends \"res://dust/LowResulizor.gd\"
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
 
 [sub_resource type="Gradient" id=1]
 
@@ -57,32 +78,13 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Hue Variation", "Initial Velocity" ]
 
-[sub_resource type="GDScript" id=10]
-
-script/source = "extends \"res://dust/LowResulizor.gd\"
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=5]
 
 render_priority = 0
-shader = ExtResource( 3 )
-shader_param/resolution_scale = 2
+shader = ExtResource( 4 )
+shader_param/resolution_scale = 4.05655
 
-[sub_resource type="Environment" id=5]
+[sub_resource type="Environment" id=6]
 
 background_mode = 0
 background_sky_custom_fov = 0.0
@@ -161,18 +163,18 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light", "Background" ]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=7]
 
 offsets = PoolRealArray( 0, 0.408284, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.875, 0.750031, 0.0751953, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=8]
 
 flags = 4
-gradient = SubResource( 6 )
+gradient = SubResource( 7 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -202,7 +204,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 5.0
 scale_random = 0.5
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 8 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -218,39 +220,46 @@ _sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Spread" ]
 
 position = Vector2( 800, 230 )
 _sections_unfolded = [ "Material", "Transform" ]
-start_scale = 1
-end_scale = 10
-speed = 0.5
 dune_color_start = Color( 0.1875, 0.176605, 0.105469, 1 )
 dune_color_end = Color( 0.316406, 0.244759, 0.0543823, 1 )
 dune_scale_start = 3.0
 dune_scale_end = 2.75
-dune_velocity_start = -20.0
-dune_velocity_end = -25.0
+dune_velocity_start = -10.0
+dune_velocity_end = -15.0
 dune_spawn_start = 5.0
 dune_spawn_end = 7.0
-dune_max_lifetime = 60.0
+dune_max_lifetime = 70.0
 dune_prep_count = 7
 
 [node name="DuneMakerFront" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 800, 300 )
 _sections_unfolded = [ "Material", "Transform" ]
-start_scale = 1
-end_scale = 10
-speed = 0.5
 dune_color_start = Color( 0.230469, 0.215882, 0.120636, 1 )
 dune_color_end = Color( 0.449219, 0.338861, 0.0456238, 1 )
 dune_scale_start = 0.9
 dune_scale_end = 1.1
-dune_velocity_start = -40.0
-dune_velocity_end = -45.0
+dune_velocity_start = -20.0
+dune_velocity_end = -25.0
 dune_spawn_start = 5.0
 dune_spawn_end = 7.0
-dune_max_lifetime = 30.0
+dune_max_lifetime = 45.0
 dune_prep_count = 10
 
-[node name="DustStormBack" type="Particles2D" parent="." index="2"]
+[node name="Ground" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0.433594, 0.399878, 0.125336, 1 )
+show_behind_parent = true
+position = Vector2( 300, 575 )
+scale = Vector2( 600, 400 )
+texture = ExtResource( 2 )
+script = SubResource( 4 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+start_scale = 1
+end_scale = 10
+speed = 0.5
+
+[node name="DustStormBack" type="Particles2D" parent="." index="3"]
 
 position = Vector2( 625, 300 )
 rotation = -3.14159
@@ -274,22 +283,24 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Ground" type="Sprite" parent="." index="3"]
+[node name="PillarMaker" parent="." index="4" instance=ExtResource( 3 )]
 
-modulate = Color( 0.433594, 0.399878, 0.125336, 1 )
-show_behind_parent = true
-position = Vector2( 300, 575 )
-scale = Vector2( 600, 400 )
-texture = ExtResource( 2 )
-script = SubResource( 10 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-start_scale = 1
-end_scale = 10
-speed = 0.5
+position = Vector2( 650, 325 )
+_sections_unfolded = [ "Material", "Transform" ]
+dune_color_start = Color( 0.245591, 0.246094, 0.181686, 1 )
+dune_color_end = Color( 0.5, 0.485214, 0.388672, 1 )
+dune_scale_start = 0.5
+dune_scale_end = 0.75
+dune_velocity_start = -30.0
+dune_velocity_end = -32.0
+dune_spawn_start = 8.0
+dune_spawn_end = 10.0
+dune_max_lifetime = 50.0
+dune_prep_count = 0
 
-[node name="WandererViewportContainer" type="ViewportContainer" parent="." index="4"]
+[node name="WandererViewportContainer" type="ViewportContainer" parent="." index="5"]
 
-material = SubResource( 9 )
+material = SubResource( 5 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -304,7 +315,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Material", "Pause", "Visibility" ]
 start_scale = 1
 end_scale = 10
@@ -342,7 +353,7 @@ _sections_unfolded = [ "Rendering" ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15 )
 keep_aspect = 1
 cull_mask = 1048575
-environment = SubResource( 5 )
+environment = SubResource( 6 )
 h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
@@ -354,11 +365,11 @@ near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="square" parent="WandererViewportContainer/Viewport" index="1" instance=ExtResource( 5 )]
+[node name="square" parent="WandererViewportContainer/Viewport" index="1" instance=ExtResource( 6 )]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
-[node name="DustStormFront" type="Particles2D" parent="." index="5"]
+[node name="DustStormFront" type="Particles2D" parent="." index="6"]
 
 position = Vector2( 625, 300 )
 rotation = -3.14159
@@ -375,14 +386,14 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 9 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="Light" type="DirectionalLight" parent="." index="6"]
+[node name="Light" type="DirectionalLight" parent="." index="7"]
 
 transform = Transform( 0.209934, 0, -0.977716, 0, 1, 0, 0.977716, 0, 0.209934, 0, 0, 0 )
 layers = 1
@@ -410,7 +421,7 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Directional Shadow", "Light", "Transform" ]
 
-[node name="Dark" type="DirectionalLight" parent="." index="7"]
+[node name="Dark" type="DirectionalLight" parent="." index="8"]
 
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 layers = 1
@@ -437,5 +448,13 @@ directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Transform" ]
+
+[node name="Wind" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 7 )
+volume_db = -5.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 

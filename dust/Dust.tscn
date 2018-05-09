@@ -8,7 +8,7 @@
 [ext_resource path="res://dust/square/square.tscn" type="PackedScene" id=6]
 [ext_resource path="res://dust/assets/wind_clip.wav" type="AudioStream" id=7]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends \"res://dust/LowResulizor.gd\"
 
@@ -27,18 +27,18 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0, 0.147929, 0.757396 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.539063, 0.467337, 0.0800171, 1, 0.367188, 0.302284, 0.107574, 1 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 1 )
+gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -68,7 +68,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 5.0
 scale_random = 0.5
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.5
 anim_speed = 0.0
@@ -82,7 +82,7 @@ _sections_unfolded = [ "Angular Velocity", "Color", "Hue Variation", "Initial Ve
 
 render_priority = 0
 shader = ExtResource( 4 )
-shader_param/resolution_scale = 4.05655
+shader_param/resolution_scale = 0.180717
 
 [sub_resource type="Environment" id=6]
 
@@ -253,7 +253,7 @@ show_behind_parent = true
 position = Vector2( 300, 575 )
 scale = Vector2( 600, 400 )
 texture = ExtResource( 2 )
-script = SubResource( 4 )
+script = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 start_scale = 1
 end_scale = 10
@@ -276,7 +276,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1

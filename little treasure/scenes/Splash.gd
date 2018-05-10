@@ -9,7 +9,7 @@ const click_fade_in_time = 1
 const intro_fade_out_time = 10
 
 #Max time to block the main thread 
-var time_max = 100 #Milliseconds
+var time_max = 10 #Milliseconds
 
 #The scene to load
 export var main_scene_path = "res://scenes/LittleTreasure.tscn"

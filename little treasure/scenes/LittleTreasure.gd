@@ -8,6 +8,12 @@ export(AudioStream) var song_3
 onready var songs = [song_1, song_2, song_3]
 var _current_song_index = -1
 
+#The events to handle
+export(String, FILE) var events_1
+export(String, FILE) var events_2
+export(String, FILE) var events_3
+onready var events = [events_1, events_2, events_3]
+
 onready var _music_node = $Music
 
 func _ready():
@@ -39,13 +45,12 @@ func _play_next_song():
 	_music_node.stream = next_song
 	_music_node.playing = true
 	
+	#Also get the json events
+	var events_json_path = events[_current_song_index]
+	$EventHandler.prepare_events(events_json_path)
+	
 	#We're all set
 	return true
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 
 func _on_Music_finished():
@@ -65,3 +70,14 @@ func _unhandled_key_input(event):
 	#Was this a skip
 	if event.is_action_pressed('skip'):
 		_play_next_song()
+
+
+func _on_Album_pressed():
+	#Open it up
+	OS.shell_open("https://soundcloud.com/casilofi")
+
+func _on_DannyTaylor_pressed():
+	OS.shell_open("http://chilidog.faith")
+
+func _on_DevinPentecost_pressed():
+	OS.shell_open("https://devinpentecost.info/")

@@ -1,20 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/LittleTreasure.gd" type="Script" id=1]
 [ext_resource path="res://bgm/Casilofi - Little Treasure/Casilofi - Little Treasure - 01 Little Treasure.ogg" type="AudioStream" id=2]
 [ext_resource path="res://bgm/Casilofi - Little Treasure/Casilofi - Little Treasure - 02 Tonight.ogg" type="AudioStream" id=3]
 [ext_resource path="res://bgm/Casilofi - Little Treasure/Casilofi - Little Treasure - 03 Awake.ogg" type="AudioStream" id=4]
-[ext_resource path="res://materials/test_water.tres" type="Material" id=5]
+[ext_resource path="res://scenes/EventHandler.gd" type="Script" id=5]
 [ext_resource path="res://objects/rock/Rock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://materials/test_water.tres" type="Material" id=7]
+[ext_resource path="res://splash.png" type="Texture" id=8]
+[ext_resource path="res://bgm/Casilofi - Little Treasure/cover.jpg" type="Texture" id=9]
 
 [sub_resource type="Environment" id=1]
 
 background_mode = 3
 background_sky_custom_fov = 0.0
-background_color = Color( 0.484375, 0.297915, 0.0340576, 1 )
+background_color = Color( 0.0742188, 0.0497298, 0.0150757, 1 )
 background_energy = 1.0
 background_canvas_max_layer = 0
-ambient_light_color = Color( 0.757813, 0.512671, 0.130249, 1 )
+ambient_light_color = Color( 0.25, 0.143875, 0.0410156, 1 )
 ambient_light_energy = 1.0
 ambient_light_sky_contribution = 0.5
 fog_enabled = false
@@ -92,14 +95,447 @@ size = Vector2( 2, 2 )
 subdivide_width = 0
 subdivide_depth = 0
 
+[sub_resource type="PlaneMesh" id=3]
+
+size = Vector2( 2, 2 )
+subdivide_width = 0
+subdivide_depth = 0
+
+[sub_resource type="SpatialMaterial" id=4]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.242188, 0.111471, 0.0160828, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "end_slate"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndSlate/Album:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EndSlate/Album:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EndSlate/DevinPentecost:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EndSlate/DevinPentecost:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("EndSlate/DannyTaylor:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EndSlate/DannyTaylor:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "fade_out"
+length = 1.0
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndSlate/DevinPentecost:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EndSlate/DannyTaylor:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndSlate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EndSlate/Album:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EndSlate/DevinPentecost:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EndSlate/DevinPentecost:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("EndSlate/DannyTaylor:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 5.0
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("EndSlate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EndSlate:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EndSlate/Album:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+
+length = 60.0
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("DirectionalLight:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -94.3223, 0, 0 ), Vector3( -110.659, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WorldEnvironment:environment:background_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.484375, 0.297915, 0.0340576, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.757813, 0.512671, 0.130249, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DirectionalLight:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.472656, 0.876404, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+length = 80.0
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("DirectionalLight:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 80 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -110.659, 0, 0 ), Vector3( -32.1732, 175.281, -171.189 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DirectionalLight:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 80 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.691406, 0.691406, 0.691406, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+length = 60.0
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("DirectionalLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30, 60 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.691406, 0.691406, 0.691406, 1 ), Color( 0.984375, 0.230713, 0.230713, 1 ), Color( 0.457031, 0.237386, 0.00357055, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DirectionalLight:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30, 60 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -32.1732, 175.281, -171.189 ), Vector3( -15.1817, 175.863, -172.62 ), Vector3( -6.33026, 160.802, -175.806 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WorldEnvironment:environment:background_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.484375, 0.297915, 0.0340576, 1 ), Color( 0.0742188, 0.0497298, 0.0150757, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.757813, 0.512671, 0.130249, 1 ), Color( 0.25, 0.143875, 0.0410156, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DirectionalLight:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.25 ]
+}
+
 [node name="Little Treasure" type="Node" index="0"]
 
 script = ExtResource( 1 )
 song_1 = ExtResource( 2 )
 song_2 = ExtResource( 3 )
 song_3 = ExtResource( 4 )
+events_1 = "res://events/events_1.json"
+events_2 = "res://events/events_2.json"
+events_3 = "res://events/events_3.json"
 
-[node name="Camera" type="Camera" parent="." index="0"]
+[node name="EventHandler" type="Node" parent="." index="0"]
+
+script = ExtResource( 5 )
+
+[node name="Camera" type="Camera" parent="." index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47764, 0 )
 keep_aspect = 1
@@ -115,16 +551,16 @@ size = 1.0
 near = 0.05
 far = 500.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
 environment = SubResource( 1 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, -0.479199, 0.877706, 0, -0.877706, -0.479199, 0, 0, 0 )
+transform = Transform( 0.944513, -0.0329114, 0.326822, -0.0726917, -0.991241, 0.110259, 0.32033, -0.127899, -0.938632, 0, 0, 0 )
 layers = 1
-light_color = Color( 1, 1, 1, 1 )
-light_energy = 1.0
+light_color = Color( 0.457031, 0.237386, 0.00357055, 1 )
+light_energy = 0.25
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
@@ -145,25 +581,11 @@ directional_shadow_normal_bias = 0.8
 directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
-
-[node name="Water" type="MeshInstance" parent="." index="3"]
-
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, -6.82846 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
-skeleton = NodePath("..")
-material/0 = ExtResource( 5 )
-_sections_unfolded = [ "Transform", "material" ]
+_sections_unfolded = [ "Light", "Transform" ]
 
 [node name="Foreground" type="Node" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Rock" parent="Foreground" index="0" instance=ExtResource( 6 )]
 
@@ -181,7 +603,45 @@ transform = Transform( -0.0640485, -0.423436, -0.903659, 0.894361, -0.426086, 0.
 
 transform = Transform( -0.329987, -0.907838, 0.258727, 0.757288, -0.0909542, 0.646717, -0.563581, 0.409338, 0.717508, -2.71091, 0.73774, -2.25867 )
 
-[node name="Middle" type="Node" parent="." index="5"]
+[node name="Water" type="Node" parent="." index="5"]
+
+[node name="Water" type="MeshInstance" parent="Water" index="0"]
+
+transform = Transform( 40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, -6.82846 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Underwater" type="MeshInstance" parent="Water" index="1"]
+
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.316415, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 3 )
+skeleton = NodePath("..")
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Middle" type="Node" parent="." index="6"]
+
+editor/display_folded = true
 
 [node name="Rock3" parent="Middle" index="0" instance=ExtResource( 6 )]
 
@@ -191,7 +651,9 @@ transform = Transform( 0.724675, 0.689091, 0, -0.689091, 0.724675, 0, 0, 0, 1, -
 
 transform = Transform( -0.641088, -0.767468, 0, 0.767468, -0.641088, 0, 0, 0, 1, 0.628454, 0, -13.4801 )
 
-[node name="Background" type="Node" parent="." index="6"]
+[node name="Background" type="Node" parent="." index="7"]
+
+editor/display_folded = true
 
 [node name="Rock" parent="Background" index="0" instance=ExtResource( 6 )]
 
@@ -208,7 +670,7 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 12.1185, 1.8955, -4.97483, 1.16734, -5.36383, -4.41315, -8.76232, 1.90694, -7.46828, -0.646355, -2.73048, -37.1941 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Music" type="AudioStreamPlayer" parent="." index="7"]
+[node name="Music" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = null
 volume_db = 0.0
@@ -216,6 +678,173 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="EndSlate" type="TextureRect" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Margin", "Visibility" ]
+
+[node name="Album" type="TextureButton" parent="EndSlate" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 4
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Textures", "Visibility" ]
+
+[node name="Link" type="RichTextLabel" parent="EndSlate/Album" index="0"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -150.0
+margin_right = 117.0
+margin_bottom = 69.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "Please Support the Artist
+
+Click here to go to:
+https://soundcloud.com/casilofi"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Please Support the Artist
+
+Click here to go to:
+https://soundcloud.com/casilofi"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Anchor", "BBCode", "Margin" ]
+
+[node name="DevinPentecost" type="LinkButton" parent="EndSlate" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 388.0
+margin_top = 166.0
+margin_right = 549.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "www.devinpentecost.info"
+_sections_unfolded = [ "Visibility" ]
+
+[node name="ThankYou" type="Label" parent="EndSlate/DevinPentecost" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 57.0
+margin_right = 71.0
+margin_bottom = 71.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Thank You"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="DannyTaylor" type="LinkButton" parent="EndSlate" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 388.0
+margin_top = 143.0
+margin_right = 549.0
+margin_bottom = 157.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "www.chilidog.faith"
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
+
+root_node = NodePath("..")
+autoplay = "initialize"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/end_slate = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
+anims/initialize = SubResource( 7 )
+anims/show_album = SubResource( 8 )
+anims/sun_1 = SubResource( 9 )
+anims/sun_2 = SubResource( 10 )
+anims/sun_3 = SubResource( 11 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+
+[connection signal="pressed" from="EndSlate/Album" to="." method="_on_Album_pressed"]
+
+[connection signal="pressed" from="EndSlate/DevinPentecost" to="." method="_on_DevinPentecost_pressed"]
+
+[connection signal="pressed" from="EndSlate/DannyTaylor" to="." method="_on_DannyTaylor_pressed"]
 
 

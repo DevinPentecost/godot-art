@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Casilofi - Little Treasure - 03 Awake.ogg-a5757b9fc3500730819c2ae7b2154497.oggstr"
+
+[deps]
+
+source_file="res://bgm/Casilofi - Little Treasure/Casilofi - Little Treasure - 03 Awake.ogg"
+source_md5="7dd42ff8088e1d41e5ba57d686285e64"
+
+dest_files=[ "res://.import/Casilofi - Little Treasure - 03 Awake.ogg-a5757b9fc3500730819c2ae7b2154497.oggstr" ]
+dest_md5="007ae41e5df056e3a22ad26dd94bf83e"
+
+[params]
+
+loop=false
+loop_offset=0

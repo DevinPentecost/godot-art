@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Casilofi - Little Treasure - 01 Little Treasure.ogg-6e44fb22e4526f7ebadc95d03cd38c04.oggstr"
+
+[deps]
+
+source_file="res://bgm/Casilofi - Little Treasure/Casilofi - Little Treasure - 01 Little Treasure.ogg"
+source_md5="654dc928663fb79bd2d7276f954fb2ec"
+
+dest_files=[ "res://.import/Casilofi - Little Treasure - 01 Little Treasure.ogg-6e44fb22e4526f7ebadc95d03cd38c04.oggstr" ]
+dest_md5="578c99df4aeadc43ea614da3669611f7"
+
+[params]
+
+loop=false
+loop_offset=0

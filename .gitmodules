@@ -1,6 +1,0 @@
-[submodule "lib/softnoise"]
-	path = lib/softnoise
-	url = https://github.com/PerduGames/SoftNoise-GDScript-.git
-[submodule "lib/godot-practice-shaders"]
-	path = lib/godot-practice-shaders
-	url = https://github.com/DevinPentecost/godot-practice-shaders.git

@@ -1,0 +1,18 @@
+[
+    {
+        "time": 120,
+        "animation": "sun_3"
+    },
+    {
+        "time": 180,
+        "animation": "show_album"
+    },
+    {
+        "time": 220,
+        "animation": "end_slate"
+    },
+    {
+        "time": 290,
+        "animation": "fade_out"
+    }
+]

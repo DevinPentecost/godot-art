@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/Rings.gd" type="Script" id=1]
+
+[node name="Test" type="Node" index="0"]
+
+[node name="Ring" type="Node2D" parent="." index="0"]
+
+position = Vector2( 41.1738, 34.4468 )
+script = ExtResource( 1 )
+width = null
+height = null
+ring_height = 5
+ring_spacing = 2
+debug = false
+base_color = Color( 1, 0, 1, 1 )
+center_radius = 10
+
+

@@ -7,10 +7,7 @@ path="res://.import/square.dae-dd91c879f2feba0e6a5f56f890f5f5b4.scn"
 [deps]
 
 source_file="res://dust/square/square.dae"
-source_md5="64bdb2e5a972c813463964facf23f7d0"
-
 dest_files=[ "res://.import/square.dae-dd91c879f2feba0e6a5f56f890f5f5b4.scn" ]
-dest_md5="40e4131f0d5ac25c70418cee64b04a4c"
 
 [params]
 

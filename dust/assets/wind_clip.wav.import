@@ -7,10 +7,7 @@ path="res://.import/wind_clip.wav-6224c1b2a999c25cc7a06fcefe43372f.sample"
 [deps]
 
 source_file="res://dust/assets/wind_clip.wav"
-source_md5="5abe32435537738147e6ddff42aa8309"
-
 dest_files=[ "res://.import/wind_clip.wav-6224c1b2a999c25cc7a06fcefe43372f.sample" ]
-dest_md5="260b4ecb481e19f975bc2a43004c8433"
 
 [params]
 

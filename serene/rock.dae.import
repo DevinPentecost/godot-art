@@ -7,10 +7,7 @@ path="res://.import/rock.dae-ebfd8e637220696e38537e4afb206e7f.scn"
 [deps]
 
 source_file="res://serene/rock.dae"
-source_md5="b7e09191dd55a2694073731d1fdc4f02"
-
 dest_files=[ "res://.import/rock.dae-ebfd8e637220696e38537e4afb206e7f.scn" ]
-dest_md5="1d19e896fc3c6f56228695bc0849f5c0"
 
 [params]
 

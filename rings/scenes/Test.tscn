@@ -4,14 +4,16 @@
 
 [node name="Test" type="Node" index="0"]
 
-[node name="Ring" type="Node2D" parent="." index="0"]
+[node name="Rings" type="Node2D" parent="." index="0"]
 
-position = Vector2( 41.1738, 34.4468 )
+position = Vector2( 300, 300 )
 script = ExtResource( 1 )
-width = null
-height = null
-ring_height = 5
-ring_spacing = 2
+_sections_unfolded = [ "Transform" ]
+radius = 300
+ring_height = 15
+ring_spacing = 5
+segment_widths = Vector2( 0.19635, 0.392699 )
+segment_spacings = Vector2( 0.0981748, 0.19635 )
 debug = false
 base_color = Color( 1, 0, 1, 1 )
 center_radius = 10

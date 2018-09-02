@@ -4,6 +4,8 @@ Model Class for defining a ring of the circle
 
 const Segment = preload("res://objects/Segment.gd")
 
+var _debug = false
+
 #Position and size
 var base_radius #In pixels
 var radius
@@ -69,13 +71,31 @@ func create_segments():
 		var new_segment = Segment.new(segment_angle, segment_width, height, color)
 		segments.append(new_segment)
 		
+		if _debug and segments.size() == 1:
+			new_segment._debug = true
+		
 		#Add the spacing
 		current_angle += space_width
+
+func update(delta):
+	update_angle(delta)
 	
+	#Update all segments
+	update_segments(delta)
+
 func update_angle(delta):
 	angle += angular_velocity * delta
-	
+	if _debug:
+		print("New ring angle ", angle)
+
+func update_segments(delta):
+	for segment in segments:
+		segment.update(delta)
+
 func get_polygons():
+	
+	if _debug:
+		print("Getting polygons")
 	
 	#For each segment
 	var polygons = []
@@ -85,4 +105,4 @@ func get_polygons():
 		polygons.append(segment_polygon)
 		
 	#Return it
-	return get_polygons()
+	return polygons

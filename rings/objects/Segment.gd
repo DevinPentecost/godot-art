@@ -1,6 +1,7 @@
 """
 Model Class for defining a segment of the circle
 """
+var _debug = false
 
 #Position and size
 var base_offset #In radians, centered
@@ -31,7 +32,13 @@ func apply_base():
 	height = base_height
 	color = base_color
 	
+func update(delta):
+	pass
+	
 func get_polygon(radius, angle):
+	
+	if _debug:
+		print("Get polygon ", angle)
 	
 	#The points of the polygon
 	var points = PoolVector2Array()
@@ -50,7 +57,7 @@ func get_polygon(radius, angle):
 	var center_point = Vector2(cos(center_angle), sin(center_angle))
 	
 	#How high of a point count to use
-	var point_count = 32 #TODO: Make this dynamic?
+	var point_count = 4 #TODO: Make this dynamic?
 	var point_steps = range(point_count + 1)
 	for point in point_steps:
 		#How far along are we?
@@ -60,7 +67,6 @@ func get_polygon(radius, angle):
 		#Create the point and extend for the outer radius
 		var new_point = center_point + Vector2(cos(point_angle), sin(point_angle))
 		new_point *= outer_radius
-		print(step_percentage, ' ', point_angle)
 		points.push_back(new_point)
 	
 	#Now come backwards on those points
@@ -73,7 +79,6 @@ func get_polygon(radius, angle):
 		#Create the point and extend to the inner radius
 		var new_point = center_point + Vector2(cos(point_angle), sin(point_angle))
 		new_point *= inner_radius
-		print(step_percentage, ' ', point_angle)
 		points.push_back(new_point)
 	
 	#Return all the points

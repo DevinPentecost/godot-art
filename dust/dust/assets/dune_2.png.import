@@ -7,10 +7,7 @@ path="res://.import/dune_2.png-dbd85affd681b873fa166415537c663a.stex"
 [deps]
 
 source_file="res://dust/assets/dune_2.png"
-source_md5="092b90c9364ea4fe628831913e24a0ee"
-
 dest_files=[ "res://.import/dune_2.png-dbd85affd681b873fa166415537c663a.stex" ]
-dest_md5="0affac5dcbfc93d6a804f34409f9abcc"
 
 [params]
 

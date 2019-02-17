@@ -6,11 +6,16 @@ path="res://.import/cover.jpg-e3f112b729cd8d83b9579fd33b289496.stex"
 
 [deps]
 
+<<<<<<< HEAD:test.png.import
+source_file="res://test.png"
+dest_files=[ "res://.import/test.png-2b0b935732229e5bd5e655f2644b2498.stex" ]
+=======
 source_file="res://bgm/Casilofi - Little Treasure/cover.jpg"
 source_md5="59e38e4ce758f1582ea46b4cbf87ec5b"
 
 dest_files=[ "res://.import/cover.jpg-e3f112b729cd8d83b9579fd33b289496.stex" ]
 dest_md5="2f58b66a46c982b7c61a338a8bc0d012"
+>>>>>>> master:little treasure/bgm/Casilofi - Little Treasure/cover.jpg.import
 
 [params]
 

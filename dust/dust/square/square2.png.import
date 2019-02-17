@@ -8,10 +8,7 @@ path.etc2="res://.import/square2.png-e606cdeda5092e9044074af70df83949.etc2.stex"
 [deps]
 
 source_file="res://dust/square/square2.png"
-source_md5="058e66991185b2967b8c688a71ec5951"
-
 dest_files=[ "res://.import/square2.png-e606cdeda5092e9044074af70df83949.s3tc.stex", "res://.import/square2.png-e606cdeda5092e9044074af70df83949.etc2.stex" ]
-dest_md5="cf4aa96616829466a1894776dd091e17"
 
 [params]
 

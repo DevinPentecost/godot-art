@@ -7,10 +7,7 @@ path="res://.import/pillar_1.png-15732d157a45c9f4843b4859d094aedb.stex"
 [deps]
 
 source_file="res://dust/assets/pillar_1.png"
-source_md5="05c08d3682cce6dd3c19bce12d2bba1b"
-
 dest_files=[ "res://.import/pillar_1.png-15732d157a45c9f4843b4859d094aedb.stex" ]
-dest_md5="d8eca3bd00eec56553566a9f515fec25"
 
 [params]
 

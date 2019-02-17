@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+const Circle = preload(\"res://Circle.tscn\")
+const ChildCircle = preload(\"res://ChildCircle.tscn\")
+
+var colors = [
+	ColorN(\"Red\"),
+	ColorN(\"Blue\"),
+	ColorN(\"Green\"),
+	ColorN(\"Yellow\"),
+	ColorN(\"Orange\"),
+	ColorN(\"Cyan\"),
+	ColorN(\"Gray\"),
+	ColorN(\"Purple\")
+]
+
+onready var start_point = $Center
+const spacing = 5 #Pixels apart
+
+var top_circles = []
+var left_circles = []
+
+func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
+	
+	#Move the start to the center
+	var window_size = OS.get_real_window_size()
+	start_point.position = window_size/2
+	
+	#Make a bunch of circles
+	var count = colors.size()
+	var angle_step = 2*PI / count
+	var circle_diameter = Circle.instance().radius*2
+	
+	var total_size = (circle_diameter + spacing) * count
+	
+	#Across the whole row...
+	for color_index in range(count):
+		
+		#Get the angle for this one
+		var angle = color_index-1 * angle_step
+		var color = colors[color_index]
+		
+		#Make a circle
+		var new_x = start_point.position.x + (-total_size/2) + ((circle_diameter + spacing) * color_index)
+		var new_y = start_point.position.y + (-total_size/2)
+		var position = Vector2(new_x, new_y)
+		top_circles.append(_add_circle(position, color, angle))
+		
+		#For the first color, don't need to add another one
+		if color_index > 0:
+			#Do it again but flip X and Y
+			new_x = start_point.position.x + (-total_size/2)
+			new_y = start_point.position.y + (-total_size/2) + ((circle_diameter + spacing) * color_index)
+			position = Vector2(new_x, new_y)
+			left_circles.append(_add_circle(position, color, angle))
+		else:
+			left_circles.append(null)
+	
+	#Now go through each row and column...
+	for col_index in range(top_circles.size()):
+		var x_parent = top_circles[col_index]
+		for row_index in range(left_circles.size()):
+			var y_parent = left_circles[row_index]
+			
+			#Add a child for these two
+			
+			#But not for the top or left
+			if row_index == 0 or col_index == 0:
+				continue
+			
+			#Add the child
+			_add_child_cirle(x_parent, y_parent)
+		
+
+func _add_circle(position, color, angle):
+	#Make a new instance and set it up
+	var new_circle = Circle.instance()
+	new_circle.position = position
+	new_circle.color = color
+	new_circle.current_angle = angle
+
+	#Add it
+	add_child(new_circle)
+	return new_circle
+	
+func _add_child_cirle(x_parent, y_parent):
+	#Are either of them None?
+	if x_parent and y_parent:
+		
+		#Make a child circle
+		var new_child_circle = ChildCircle.instance()
+		new_child_circle.x_parent_circle = x_parent
+		new_child_circle.y_parent_circle = y_parent
+		add_child(new_child_circle)
+		
+		return new_child_circle
+		
+"
+
+[node name="ColorGrid" type="Node" index="0"]
+
+script = SubResource( 1 )
+
+[node name="Center" type="Node2D" parent="." index="0"]
+
+position = Vector2( 50, 50 )
+_sections_unfolded = [ "Transform" ]
+
+

@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+const Circle = preload(\"res://Circle.tscn\")
+
+var colors = [
+	ColorN(\"Red\"),
+	ColorN(\"Blue\"),
+	ColorN(\"Green\"),
+	ColorN(\"Yellow\"),
+	ColorN(\"Orange\"),
+	ColorN(\"Cyan\"),
+	ColorN(\"Gray\"),
+	ColorN(\"Purple\")
+]
+
+onready var start_point = $TopLeft.position
+const spacing = 5 #Pixels apart
+
+func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
+	
+	
+	#Make a bunch of circles
+	var angle_step = 2*PI / colors.size()
+	for color_index in range(colors.size()):
+		#Get the angle for this one
+		var angle = color_index-1 * angle_step
+		var color = colors[color_index]
+		
+		#Make a circle
+		var new_circle = Circle.instance()
+		var new_x = start_point.x + ((new_circle.radius*2 + spacing) * color_index)
+		var new_y = start_point.y
+		
+		#Set it up
+		new_circle.position.x = new_x
+		new_circle.position.y = new_y
+		new_circle.color = color
+		new_circle.current_angle = angle
+		
+		#Add it
+		add_child(new_circle)
+"
+
+[node name="CircleLine" type="Node"]
+
+script = SubResource( 1 )
+
+[node name="TopLeft" type="Node2D" parent="." index="0"]
+
+position = Vector2( 73.8597, 180.881 )
+
+

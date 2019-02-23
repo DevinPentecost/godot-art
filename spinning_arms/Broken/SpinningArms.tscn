@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Broken/Arm.tscn" type="PackedScene" id=1]
+
+[node name="SpinningArms" type="Node" index="0"]
+
+[node name="Arm" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 434.184, 250.016 )
+angle = 5.73343
+
+[node name="Arm" parent="Arm" index="0" instance=ExtResource( 1 )]
+
+color = Color( 0, 0.132813, 1, 1 )
+speed = 1.0
+size = 50.0
+arm_thickness = 4
+
+[node name="Arm" parent="Arm/Arm" index="0" instance=ExtResource( 1 )]
+
+color = Color( 1, 0, 0, 1 )
+size = 225.0
+arm_thickness = 3
+
+

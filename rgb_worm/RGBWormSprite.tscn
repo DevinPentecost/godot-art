@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RGBWormSprite.gd" type="Script" id=1]
+
+[node name="RGBWormSprite" type="Sprite"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Offset" ]
+_seed = 0
+max_active_worms = 1
+image_width = 1920
+image_height = 1080
+max_red = 255
+min_red = 0
+step_red = 5
+max_green = 255
+min_green = 0
+step_green = 5
+max_blue = 255
+min_blue = 0
+step_blue = 5
+
+
